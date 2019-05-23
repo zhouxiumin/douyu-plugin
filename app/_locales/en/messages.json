@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "douyu plugin",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "dou yu plugin",
+    "description": "The description of the application"
+  }
+}
