@@ -47,7 +47,12 @@
         "http://www.douyu.com/*",
         "https://www.douyu.com/*"
       ],
+      "css":[
+        "styles/layui.css"
+      ],
       "js": [
+        "bower_components/jquery/dist/jquery.min.js",
+        "js/layui.all.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",
