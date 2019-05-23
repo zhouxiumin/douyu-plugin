@@ -44,8 +44,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "http://www.douyu.com/*",
+        "https://www.douyu.com/*"
       ],
       "js": [
         "scripts/contentscript.js"
