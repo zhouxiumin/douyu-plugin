@@ -9,3 +9,4 @@ chrome.tabs.onUpdated.addListener(tabId => {
 });
 
 console.log('\'斗鱼 \'斗鱼! Event Page for Page Action');
+

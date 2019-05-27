@@ -52,7 +52,6 @@
       ],
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
-        "js/layui.all.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",
