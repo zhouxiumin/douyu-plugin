@@ -9,14 +9,10 @@ layui.use(['form','layer'], function(){
       console.log('chrome.runtime.lastError.message');
       console.log(chrome.runtime.lastError.message);
     } else {
-      console.log('result');
-      console.log(result);
       let tuling123 = result.tuling123;
-      if (tuling123.apikey && tuling123.secret) {
-          console.log(tuling123.apikey);
-          console.log(tuling123.secret);
+      if (tuling123.apikey && tuling123.userId) {
           $('#apikey').val(tuling123.apikey);
-          $('#secret').val(tuling123.secret);
+          $('#userId').val(tuling123.userId);
       }
     }
   });
