@@ -115,49 +115,47 @@ function getAllMessage() {
   console.log(mesContent);
   console.log(typeof mesContent);
   let array = [];
+  let count = 0;
   mesContent.forEach((item) =>{
     let type = item.children('div').attr('class');
     if(type.indexOf(messageType.notice) != -1){
       let from= item.find('div span.Barrage-nickName').attr('title');
       let content = item.find('div span.Barrage-content').text();
       if(from != user && content.indexOf('小二，') != -1){
-        let data = {
-          'reqType': 0,
-          'perception': {
-            'inputText': {
-              'text': '你好'
-            },
-          },
-          'userInfo': {
-            'apiKey': tuling123.apikey,
-            'userId': tuling123.userId
-          }
-        };
-        $.ajax({
-          type: 'POST',
-          url: 'http://openapi.tuling123.com/openapi/api/v2',
-          dataType: 'json',
-          data: JSON.stringify(data),
-          success: function (resp) {
-            console.log('success ajax');
-            console.log(resp);
-            if(resp && resp.results) {
-              for(let result of resp.results) {
-                if(result && result.values && result.values.text) {
-                  let res = result.values.text;
-                  array.push({
-                    id: item.attr('id'),
-                    type: 'notice',
-                    from: from,
-                    content: res,
-                  })
-                }
-              }
 
-            }
-          }
-        });
+        count ++;
+        if(count <3){
+          chrome.runtime.sendMessage(
+            {message: 'hello'},
+            function(response) {
+              console.log(response);
+            } );
+        }
+
+
+        // let bg = chrome.extension.getBackgroundPage();
+        // bg.sendMessage('你好', function (resp) {
+        //   console.log('success ajax');
+        //   console.log(resp);
+        //   if(resp && resp.results) {
+        //     for(let result of resp.results) {
+        //       if(result && result.values && result.values.text) {
+        //         let res = result.values.text;
+        //         array.push({
+        //           id: item.attr('id'),
+        //           type: 'notice',
+        //           from: from,
+        //           content: res,
+        //         })
+        //       }
+        //     }
+        //
+        //   }
+        // });
+
+
       }
+
     }else if(type.indexOf(messageType.enter) != -1){
       let from= item.find('div span.Barrage-nickName').attr('title');
       let content = item.find('div span.Barrage-text').text();
